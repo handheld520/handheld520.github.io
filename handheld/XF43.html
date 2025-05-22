@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XF43 更多资讯</title>
+    <title id="pageTitle">XF43 更多资讯</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -65,10 +66,10 @@
 <body>
 
 <div class="container">
-    <h1>XF43 更多资讯</h1>
+    <h1 id="mainTitle">XF43 更多资讯</h1>
 
     <div class="language-selector">
-        <label for="language">change language:</label>
+        <label for="language">Change Language:</label>
         <select id="language" onchange="changeLanguage()">
             <option value="zh">中文</option>
             <option value="en">English</option>
@@ -83,7 +84,10 @@
 <script>
     const systems = [
         {
-            name: "EmuELEC Emmc镜像",
+            name: {
+                zh: "EmuELEC Emmc镜像",
+                en: "EmuELEC EMMC Image"
+            },
             log: {
                 zh: [
                     "版本20250508: 1.修改画面比例为4/3。2.修复dpad、abxy漏键的问题"
@@ -95,16 +99,19 @@
             downloads: {
                 zh: [
                     { platform: "百度网盘", link: "https://pan.baidu.com/s/12gkLgf470iiYK98cxyU-lw?pwd=LC66" },
-                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-XF43/releases/download/20250313/XF43_V8_Y043-20250313-emmc.img" }
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-XF43/releases/download/20250508/XF43_V8_Y043-20250508-emmc.img" }
                 ],
                 en: [
                     { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/12gkLgf470iiYK98cxyU-lw?pwd=LC66" },
-                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-XF43/releases/download/20250313/XF43_V8_Y043-20250313-emmc.img" }
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-XF43/releases/download/20250508/XF43_V8_Y043-20250508-emmc.img" }
                 ]
             }
         },
         {
-            name: "Emuelec SD卡镜像",
+            name: {
+                zh: "Emuelec SD卡镜像",
+                en: "Emuelec SD Card Image"
+            },
             log: {
                 zh: [
                     "版本20250508: 修复dpad、abxy漏键的问题"
@@ -116,37 +123,45 @@
             downloads: {
                 zh: [
                     { platform: "百度网盘", link: "https://pan.baidu.com/s/1_GWWmR4H5qdWTH5xGDbSBg?pwd=LC66" },
-                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-XF43/releases/download/20250313/XF43_V8_Y043-20250313-tf.img" }
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-XF43/releases/download/20250508/XF43_V8_Y043-20250508-tf.img" }
                 ],
                 en: [
                     { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1_GWWmR4H5qdWTH5xGDbSBg?pwd=LC66" },
-                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-XF43/releases/download/20250313/XF43_V8_Y043-20250313-tf.img" }
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-XF43/releases/download/20250508/XF43_V8_Y043-20250508-tf.img" }
                 ]
             }
         }
     ];
 
+    // 获取URL中的语言参数
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    const defaultLanguage = (langParam === 'en') ? 'en' : 'zh';
+
     // 生成导航菜单
     const navTable = document.getElementById('systemTable');
-    systems.forEach(system => {
-        const navItem = document.createElement('div');
-        navItem.className = 'nav-item';
-        const link = document.createElement('a');
-        link.href = `#${system.name.toLowerCase()}`;
-        link.textContent = system.name;
-        navItem.appendChild(link);
-        navTable.appendChild(navItem);
-    });
+    function renderNav(language) {
+        navTable.innerHTML = ''; // 清空当前内容
+        systems.forEach(system => {
+            const navItem = document.createElement('div');
+            navItem.className = 'nav-item';
+            const link = document.createElement('a');
+            link.href = `#${system.name[language].toLowerCase()}`; // 使用当前语言的名称
+            link.textContent = system.name[language]; // 使用当前语言的名称
+            navItem.appendChild(link);
+            navTable.appendChild(navItem);
+        });
+    }
 
     // 生成系统段落
-    const container = document.getElementById('systemsContainer');
     function renderSystems(language) {
+        const container = document.getElementById('systemsContainer');
         container.innerHTML = ''; // 清空当前内容
         systems.forEach(system => {
             const section = document.createElement('div');
-            section.id = system.name.toLowerCase();
+            section.id = system.name[language].toLowerCase(); // 使用当前语言的名称
             const h2 = document.createElement('h2');
-            h2.textContent = system.name;
+            h2.textContent = system.name[language]; // 使用当前语言的名称
             section.appendChild(h2);
 
             const log = document.createElement('p');
@@ -159,8 +174,8 @@
                 const downloadLink = document.createElement('a');
                 downloadLink.className = 'download-link';
                 downloadLink.href = download.link;
-                downloadLink.target = "_blank";
-                downloadLink.textContent = `${download.platform} 下载`;
+                downloadLink.target = "_blank"; // 设置在新窗口中打开
+                downloadLink.textContent = `${download.platform} ` + (language === 'zh' ? "下载" : "download");
                 downloadContainer.appendChild(downloadLink);
                 downloadContainer.appendChild(document.createElement('br')); // 换行
             });
@@ -173,11 +188,16 @@
     // 切换语言
     function changeLanguage() {
         const selectedLanguage = document.getElementById('language').value;
-        renderSystems(selectedLanguage);
+        renderNav(selectedLanguage); // 更新导航菜单
+        renderSystems(selectedLanguage); // 更新系统内容
+
+        // 更新页面标题
+        document.getElementById('pageTitle').textContent = selectedLanguage === 'zh' ? "XF43 更多资讯" : "XF43 More Information";
     }
 
-    // 默认加载中文
-    renderSystems('zh');
+    // 默认加载语言
+    renderNav(defaultLanguage); // 默认加载导航菜单
+    renderSystems(defaultLanguage); // 默认加载系统内容
 </script>
 
 </body>

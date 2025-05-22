@@ -3,33 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>稀范科技</title>
+    <title id="pageTitle">稀范科技</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #add8e6;
-            color: white; /* 设置文字颜色为白色 */
+            color: white;
         }
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
-            background: rgba(0, 0, 0, 0.5); /* 背景透明黑色 */
+            background: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 10px;
         }
         h1 {
             text-align: center;
             margin: 20px 0;
-            font-size: 3em; /* 更大的字体 */
-            font-weight: bold; /* 加粗 */
-            color: #FFD700; /* 金色 */
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* 阴影效果 */
+            font-size: 3em;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
         }
-        a:link,a:visited{ 
-            text-decoration:none;  /*超链接无下划线*/ 
+        .language-selector {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .language-selector label {
+            margin-right: 5px;
+            color: #111222; /* 标签颜色为白色 */
+        }
+        select {
+            border: none;
+            background: none;
+            font-weight: bold;
+            color: #111222; /* 字体颜色为白色 */
+            cursor: pointer;
+        }
+        a:link, a:visited { 
+            text-decoration: none; 
         } 
         .handheld {
             float: left;
@@ -48,9 +71,9 @@
         }
         .handheld img {
             width: 100%;
-            height: auto; /* 自适应高度 */
-            aspect-ratio: 4 / 3; /* 设置 4:3 比例 */
-            object-fit: cover; /* 保持比例填充 */
+            height: auto;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             transition: transform 0.3s;
@@ -81,17 +104,8 @@
             display: block;
             opacity: 1;
         }
-        .handheld-description a {
-            text-decoration: none;
-            color: #007BFF;
-            font-weight: bold;
-        }
-        .handheld-description a:hover {
-            text-decoration: underline;
-        }
-        /* 弹窗样式 */
         .modal {
-            display: none; /* 默认隐藏 */
+            display: none;
             position: fixed;
             z-index: 1;
             left: 0;
@@ -123,68 +137,74 @@
             text-decoration: none;
             cursor: pointer;
         }
-        /* 确保弹窗内文本颜色为黑色 */
         #modalMessage {
-            color: black; /* 设置为黑色字体 */
+            color: black; 
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>机型展示</h1>
+    <div class="language-selector">
+        <label for="language">Change Language:</label>
+        <select id="language" onchange="changeLanguage()">
+            <option value="zh">中文</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+    <h1 id="mainTitle">机型展示</h1>
     <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
-        <a href="javascript:void(0);" onclick="showModal('XF40H')">
+        <a id="linkXF40H" href="javascript:void(0);" onclick="showModal('XF40H')">
             <img src="./img/xifan/XF40H.png" alt="XF40H图片">
             <div class="handheld-description">
-                <p>XF40H 更多资讯</p>
+                <p id="xf40hTitle">XF40H 更多资讯</p>
             </div>
-            <div class="extra-info">XF40H 更多资讯</div>
+            <div class="extra-info" id="xf40hExtra">XF40H 更多资讯</div>
         </a>
     </div>
     <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
-        <a href="javascript:void(0);" onclick="showModal('XF35H')">
+        <a id="linkXF35H" href="javascript:void(0);" onclick="showModal('XF35H')">
             <img src="./img/xifan/XF35H.png" alt="XF35H图片">
             <div class="handheld-description">
-                <p>XF35H 更多资讯</p>
+                <p id="xf35hTitle">XF35H 更多资讯</p>
             </div>
-            <div class="extra-info">XF35H 更多资讯</div>
+            <div class="extra-info" id="xf35hExtra">XF35H 更多资讯</div>
         </a>
     </div>
     <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
-        <a href="./handheld/Mymini.html">
+        <a id="linkMymini" href="./handheld/Mymini.html?lang=zh"  target="_blank">
             <img src="./img/xifan/Mymini.jpg" alt="Mymini图片">
             <div class="handheld-description">
-                <p>Mymini 更多资讯</p>
+                <p id="myminiTitle">Mymini 更多资讯</p>
             </div>
-            <div class="extra-info">Mymini 更多资讯</div>
+            <div class="extra-info" id="myminiExtra">Mymini 更多资讯</div>
         </a>
     </div>
     <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
-        <a href="./handheld/XF43.html">
+        <a id="linkXF43" href="./handheld/XF43.html?lang=zh"  target="_blank">
             <img src="./img/xifan/XF43.png" alt="XF43图片">
             <div class="handheld-description">
-                <p>XF43 更多资讯</p>
+                <p id="xf43Title">XF43 更多资讯</p>
             </div>
-            <div class="extra-info">XF43 更多资讯</div>
+            <div class="extra-info" id="xf43Extra">XF43 更多资讯</div>
         </a>
     </div>
     <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
-        <a href="./handheld/R36Max.html">
+        <a id="linkR36Max" href="./handheld/R36Max.html?lang=zh"  target="_blank">
             <img src="./img/xifan/R36Max.png" alt="R36Max图片">
             <div class="handheld-description">
-                <p>R36Max 更多资讯</p>
+                <p id="r36maxTitle">R36Max 更多资讯</p>
             </div>
-            <div class="extra-info">R36Max 更多资讯</div>
+            <div class="extra-info" id="r36maxExtra">R36Max 更多资讯</div>
         </a>
     </div>
     <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
-        <a href="./handheld/R36Pro.html">
+        <a id="linkR36Pro" href="./handheld/R36Pro.html?lang=zh"  target="_blank">
             <img src="./img/xifan/R36Pro.png" alt="R36Pro图片">
             <div class="handheld-description">
-                <p>R36Pro 更多资讯</p>
+                <p id="r36proTitle">R36Pro 更多资讯</p>
             </div>
-            <div class="extra-info">R36Pro 更多资讯</div>
+            <div class="extra-info" id="r36proExtra">R36Pro 更多资讯</div>
         </a>
     </div>
 </div>
@@ -193,7 +213,7 @@
 <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
-        <p id="modalMessage">该机型暂未发布，敬请期待！</p> <!-- 确保这里有内容 -->
+        <p id="modalMessage">该机型暂未发布，敬请期待！</p>
     </div>
 </div>
 
@@ -211,21 +231,47 @@
     function showModal(model) {
         const modal = document.getElementById("myModal");
         const message = document.getElementById("modalMessage");
-        message.textContent = model + " 暂未发布，敬请期待！"; // 设置弹窗内容
-        modal.style.display = "block"; // 显示弹窗
+        message.textContent = model + (document.getElementById('language').value === 'zh' ? " 暂未发布，敬请期待！" : " is not yet released, stay tuned!");
+        modal.style.display = "block";
     }
 
     function closeModal() {
         const modal = document.getElementById("myModal");
-        modal.style.display = "none"; // 关闭弹窗
+        modal.style.display = "none";
     }
 
-    // 点击窗口外关闭弹窗
     window.onclick = function(event) {
         const modal = document.getElementById("myModal");
         if (event.target == modal) {
-            modal.style.display = "none"; // 关闭弹窗
+            modal.style.display = "none";
         }
+    }
+
+    function changeLanguage() {
+        const selectedLanguage = document.getElementById('language').value;
+
+        document.getElementById('mainTitle').textContent = selectedLanguage === 'zh' ? "机型展示" : "Model Showcase";
+        document.getElementById('pageTitle').textContent = selectedLanguage === 'zh' ? "稀范科技" : "XiFan Technology";
+
+        document.getElementById('xf40hTitle').textContent = selectedLanguage === 'zh' ? "XF40H 更多资讯" : "XF40H More Information";
+        document.getElementById('xf35hTitle').textContent = selectedLanguage === 'zh' ? "XF35H 更多资讯" : "XF35H More Information";
+        document.getElementById('myminiTitle').textContent = selectedLanguage === 'zh' ? "Mymini 更多资讯" : "Mymini More Information";
+        document.getElementById('xf43Title').textContent = selectedLanguage === 'zh' ? "XF43 更多资讯" : "XF43 More Information";
+        document.getElementById('r36maxTitle').textContent = selectedLanguage === 'zh' ? "R36Max 更多资讯" : "R36Max More Information";
+        document.getElementById('r36proTitle').textContent = selectedLanguage === 'zh' ? "R36Pro 更多资讯" : "R36Pro More Information";
+
+        document.getElementById('xf40hExtra').textContent = selectedLanguage === 'zh' ? "XF40H 更多资讯" : "XF40H More Information";
+        document.getElementById('xf35hExtra').textContent = selectedLanguage === 'zh' ? "XF35H 更多资讯" : "XF35H More Information";
+        document.getElementById('myminiExtra').textContent = selectedLanguage === 'zh' ? "Mymini 更多资讯" : "Mymini More Information";
+        document.getElementById('xf43Extra').textContent = selectedLanguage === 'zh' ? "XF43 更多资讯" : "XF43 More Information";
+        document.getElementById('r36maxExtra').textContent = selectedLanguage === 'zh' ? "R36Max 更多资讯" : "R36Max More Information";
+        document.getElementById('r36proExtra').textContent = selectedLanguage === 'zh' ? "R36Pro 更多资讯" : "R36Pro More Information";
+
+        const langParam = selectedLanguage === 'zh' ? "lang=zh" : "lang=en";
+        document.getElementById('linkMymini').href = `./handheld/Mymini.html?${langParam}`;
+        document.getElementById('linkXF43').href = `./handheld/XF43.html?${langParam}`;
+        document.getElementById('linkR36Max').href = `./handheld/R36Max.html?${langParam}`;
+        document.getElementById('linkR36Pro').href = `./handheld/R36Pro.html?${langParam}`;
     }
 </script>
 

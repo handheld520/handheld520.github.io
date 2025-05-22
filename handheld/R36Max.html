@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>R36Max 更多资讯</title>
+    <title id="pageTitle">R36Max 更多资讯</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -65,10 +66,10 @@
 <body>
 
 <div class="container">
-    <h1>R36Max 更多资讯</h1>
+    <h1 id="mainTitle">R36Max 更多资讯</h1>
 
     <div class="language-selector">
-        <label for="language">change language:</label>
+        <label for="language">Change Language:</label>
         <select id="language" onchange="changeLanguage()">
             <option value="zh">中文</option>
             <option value="en">English</option>
@@ -83,13 +84,16 @@
 <script>
     const systems = [
         {
-            name: "EmuELEC Emmc镜像",
+            name: {
+                zh: "EmuELEC Emmc镜像",
+                en: "EmuELEC EMMC Image"
+            },
             log: {
                 zh: [
-                    "版本20250423: 修复dpad、abxy漏键的问题"
+                    "版本20250508: 修复dpad、abxy漏键的问题"
                 ],
                 en: [
-                    "Version 20250423: Fixed the issue of missing keys for dpad and abxy."
+                    "Version 20250508: Fixed the issue of missing keys for dpad and abxy."
                 ]
             },
             downloads: {
@@ -104,112 +108,60 @@
             }
         },
         {
-            name: "Emuelec SD卡镜像",
+            name: {
+                zh: "Emuelec SD卡镜像",
+                en: "Emuelec SD Card Image"
+            },
             log: {
                 zh: [
-                    "版本20250423: 修复dpad、abxy漏键的问题"
+                    "版本20250508: 修复dpad、abxy漏键的问题"
                 ],
                 en: [
-                    "Version 20250423: Fixed the issue of missing keys for dpad and abxy."
+                    "Version 20250508: Fixed the issue of missing keys for dpad and abxy."
                 ]
             },
             downloads: {
                 zh: [
-                    { platform: "百度网盘", link: "https://pan.baidu.com/s/18tU6v8W0fOiZlLx0Af7Afw?pwd=LC66" },
+                    { platform: "百度网盘", link: "https://pan.baidu.com/s/1_GWWmR4H5qdWTH5xGDbSBg?pwd=LC66" },
                     { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-R36Max/releases/download/20250423/XFR36MAX-V1-B703_RF3536K4KA_YP2024080072_b02bdc_Dirty_20250423.img.gz" }
                 ],
                 en: [
-                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/18tU6v8W0fOiZlLx0Af7Afw?pwd=LC66" },
+                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1_GWWmR4H5qdWTH5xGDbSBg?pwd=LC66" },
                     { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-R36Max/releases/download/20250423/XFR36MAX-V1-B703_RF3536K4KA_YP2024080072_b02bdc_Dirty_20250423.img.gz" }
-                ]
-            }
-        },
-        {
-            name: "ARKOS",
-            log: {
-                zh: [
-                    "更新日志请看K36-Arkos更新日志，下载R36Max用即可"
-                ],
-                en: [
-                    "For the update log, please see K36-Arkos update log,Download for R36 Max."
-                ]
-            },
-            downloads: {
-                zh: [
-                    // { platform: "Google Drive", link: "https://example.com/download/arkos/google" },
-                    { platform: "GitHub", link: "https://github.com/AeolusUX/ArkOS-K36" }
-                ],
-                en: [
-                    // { platform: "Google Drive", link: "https://example.com/download/arkos/google" },
-                    { platform: "GitHub", link: "https://github.com/AeolusUX/ArkOS-K36" }
-                ]
-            }
-        },
-        {
-            name: "Rocknix mod",
-            log: {
-                zh: [
-                    "下载完成后把boot-r36max.ini重命名为boot.ini后开机"
-                ],
-                en: [
-                    "After downloading, rename boot-r36max.ini to boot.ini and then boot"
-                ]
-            },
-            downloads: {
-                zh: [
-                    // { platform: "Google Drive", link: "https://example.com/download/arkos/google" },
-                    { platform: "百度网盘", link: "https://pan.baidu.com/s/1-Ot3imEGWgNURBOPm0KZsg?pwd=rdpq#list/path=%2Frocknix%2F%E7%A8%80%E8%8C%83%E7%A7%91%E6%8A%80" }
-                ],
-                en: [
-                    // { platform: "Google Drive", link: "https://example.com/download/arkos/google" },
-                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1-Ot3imEGWgNURBOPm0KZsg?pwd=rdpq#list/path=%2Frocknix%2F%E7%A8%80%E8%8C%83%E7%A7%91%E6%8A%80" }
-                ]
-            }
-        },
-        {
-            name: "Rocknix",
-            log: {
-                zh: [
-                    "更新日志查看rocknix的更新日志。下载ROCKNIX-RK3326.aarch64-xxxxxxxx-b.img.gz即可后使用"
-                ],
-                en: [
-                    "Update log Check rocknix's update log. Download ROCKNIX-RK3326.aarch64-xxxxxxxx-b.img.gz and use it later"
-                ]
-            },
-            downloads: {
-                zh: [
-                    // { platform: "Google Drive", link: "https://example.com/download/arkos/google" },
-                    { platform: "Github", link: "https://nightly.rocknix.org/" }
-                ],
-                en: [
-                    // { platform: "Google Drive", link: "https://example.com/download/arkos/google" },
-                    { platform: "Github", link: "https://nightly.rocknix.org/" }
                 ]
             }
         }
     ];
 
+    // 获取URL中的语言参数
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    const defaultLanguage = (langParam === 'en') ? 'en' : 'zh';
+
     // 生成导航菜单
     const navTable = document.getElementById('systemTable');
-    systems.forEach(system => {
-        const navItem = document.createElement('div');
-        navItem.className = 'nav-item';
-        const link = document.createElement('a');
-        link.href = `#${system.name.toLowerCase()}`;
-        link.textContent = system.name;
-        navItem.appendChild(link);
-        navTable.appendChild(navItem);
-    });
+    function renderNav(language) {
+        navTable.innerHTML = ''; // 清空当前内容
+        systems.forEach(system => {
+            const navItem = document.createElement('div');
+            navItem.className = 'nav-item';
+            const link = document.createElement('a');
+            link.href = `#${system.name[language].toLowerCase()}`; // 使用当前语言的名称
+            link.textContent = system.name[language]; // 使用当前语言的名称
+            navItem.appendChild(link);
+            navTable.appendChild(navItem);
+        });
+    }
 
     // 生成系统段落
-    const container = document.getElementById('systemsContainer');
     function renderSystems(language) {
+        const container = document.getElementById('systemsContainer');
         container.innerHTML = ''; // 清空当前内容
         systems.forEach(system => {
             const section = document.createElement('div');
-            section.id = system.name.toLowerCase();
+            section.id = system.name[language].toLowerCase(); // 使用当前语言的名称
             const h2 = document.createElement('h2');
-            h2.textContent = system.name;
+            h2.textContent = system.name[language]; // 使用当前语言的名称
             section.appendChild(h2);
 
             const log = document.createElement('p');
@@ -222,8 +174,8 @@
                 const downloadLink = document.createElement('a');
                 downloadLink.className = 'download-link';
                 downloadLink.href = download.link;
-                downloadLink.target = "_blank";
-                downloadLink.textContent = `${download.platform} 下载`;
+                downloadLink.target = "_blank"; // 设置在新窗口中打开
+                downloadLink.textContent = `${download.platform} ` + (language === 'zh' ? "下载" : "download");
                 downloadContainer.appendChild(downloadLink);
                 downloadContainer.appendChild(document.createElement('br')); // 换行
             });
@@ -236,11 +188,15 @@
     // 切换语言
     function changeLanguage() {
         const selectedLanguage = document.getElementById('language').value;
-        renderSystems(selectedLanguage);
+        document.getElementById('mainTitle').textContent = selectedLanguage === 'zh' ? "R36Max 更多资讯" : "R36Max More Information"; // 更新标题
+        document.getElementById('pageTitle').textContent = selectedLanguage === 'zh' ? "R36Max 更多资讯" : "R36Max More Information"; // 更新页面标题
+        renderNav(selectedLanguage); // 更新导航菜单
+        renderSystems(selectedLanguage); // 更新系统内容
     }
 
-    // 默认加载中文
-    renderSystems('zh');
+    // 默认加载语言
+    renderNav(defaultLanguage); // 默认加载导航菜单
+    renderSystems(defaultLanguage); // 默认加载系统内容
 </script>
 
 </body>
