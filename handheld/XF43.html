@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XF43 更多资讯</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* 浅色背景 */
+            color: #333; /* 深色文字 */
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9); /* 半透明白色背景 */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .language-selector {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav-table {
+            display: flex;
+            flex-wrap: wrap; /* 允许换行 */
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .nav-item {
+            flex: 1 1 30%; /* 每个链接占据 30% 的宽度 */
+            text-align: center;
+            margin: 5px; /* 间距 */
+        }
+        .nav-item a {
+            display: block;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .nav-item a:hover {
+            background-color: #0056b3; /* 悬停时的颜色 */
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        .download-link {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .download-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>XF43 更多资讯</h1>
+
+    <div class="language-selector">
+        <label for="language">change language:</label>
+        <select id="language" onchange="changeLanguage()">
+            <option value="zh">中文</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+
+    <div class="nav-table" id="systemTable"></div>
+
+    <div id="systemsContainer"></div>
+</div>
+
+<script>
+    const systems = [
+        {
+            name: "EmuELEC Emmc镜像",
+            log: {
+                zh: [
+                    "版本20250508: 1.修改画面比例为4/3。2.修复dpad、abxy漏键的问题"
+                ],
+                en: [
+                    "Version 20250508: 1.Change the screen aspect ratio to 4/3 2.Fixed the issue of missing keys for dpad and abxy."
+                ]
+            },
+            downloads: {
+                zh: [
+                    { platform: "百度网盘", link: "https://pan.baidu.com/s/12gkLgf470iiYK98cxyU-lw?pwd=LC66" },
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-XF43/releases/download/20250313/XF43_V8_Y043-20250313-emmc.img" }
+                ],
+                en: [
+                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/12gkLgf470iiYK98cxyU-lw?pwd=LC66" },
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-XF43/releases/download/20250313/XF43_V8_Y043-20250313-emmc.img" }
+                ]
+            }
+        },
+        {
+            name: "Emuelec SD卡镜像",
+            log: {
+                zh: [
+                    "版本20250508: 修复dpad、abxy漏键的问题"
+                ],
+                en: [
+                    "Version 20250508: Fixed the issue of missing keys for dpad and abxy."
+                ]
+            },
+            downloads: {
+                zh: [
+                    { platform: "百度网盘", link: "https://pan.baidu.com/s/1_GWWmR4H5qdWTH5xGDbSBg?pwd=LC66" },
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-XF43/releases/download/20250313/XF43_V8_Y043-20250313-tf.img" }
+                ],
+                en: [
+                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1_GWWmR4H5qdWTH5xGDbSBg?pwd=LC66" },
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-XF43/releases/download/20250313/XF43_V8_Y043-20250313-tf.img" }
+                ]
+            }
+        }
+    ];
+
+    // 生成导航菜单
+    const navTable = document.getElementById('systemTable');
+    systems.forEach(system => {
+        const navItem = document.createElement('div');
+        navItem.className = 'nav-item';
+        const link = document.createElement('a');
+        link.href = `#${system.name.toLowerCase()}`;
+        link.textContent = system.name;
+        navItem.appendChild(link);
+        navTable.appendChild(navItem);
+    });
+
+    // 生成系统段落
+    const container = document.getElementById('systemsContainer');
+    function renderSystems(language) {
+        container.innerHTML = ''; // 清空当前内容
+        systems.forEach(system => {
+            const section = document.createElement('div');
+            section.id = system.name.toLowerCase();
+            const h2 = document.createElement('h2');
+            h2.textContent = system.name;
+            section.appendChild(h2);
+
+            const log = document.createElement('p');
+            log.innerHTML = (language === 'zh' ? "更新日志：" : "Change Log：") + "<br>" + system.log[language].join("<br>");
+            section.appendChild(log);
+
+            const downloadContainer = document.createElement('div');
+            downloadContainer.innerHTML = (language === 'zh' ? "<strong>下载链接：</strong><br>" : "<strong>Download Links：</strong><br>");
+            system.downloads[language].forEach(download => {
+                const downloadLink = document.createElement('a');
+                downloadLink.className = 'download-link';
+                downloadLink.href = download.link;
+                downloadLink.target = "_blank";
+                downloadLink.textContent = `${download.platform} 下载`;
+                downloadContainer.appendChild(downloadLink);
+                downloadContainer.appendChild(document.createElement('br')); // 换行
+            });
+            section.appendChild(downloadContainer);
+
+            container.appendChild(section);
+        });
+    }
+
+    // 切换语言
+    function changeLanguage() {
+        const selectedLanguage = document.getElementById('language').value;
+        renderSystems(selectedLanguage);
+    }
+
+    // 默认加载中文
+    renderSystems('zh');
+</script>
+
+</body>
+</html>
