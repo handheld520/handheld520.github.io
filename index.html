@@ -1,274 +1,233 @@
-
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>寨中寨资源分享</title>
-    <style scoped>
-        .title{
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>稀范科技</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #add8e6;
+            color: white; /* 设置文字颜色为白色 */
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.5); /* 背景透明黑色 */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
             text-align: center;
+            margin: 20px 0;
+            font-size: 3em; /* 更大的字体 */
+            font-weight: bold; /* 加粗 */
+            color: #FFD700; /* 金色 */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* 阴影效果 */
         }
-        .footer{
+        a:link,a:visited{ 
+            text-decoration:none;  /*超链接无下划线*/ 
+        } 
+        .handheld {
+            float: left;
+            width: 48%;
+            margin: 1%;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             text-align: center;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .footer img{
-            height: 350px ;
-            width: auto;
+        .handheld:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-        .platform-images{
-            text-align: center;
+        .handheld img {
+            width: 100%;
+            height: auto; /* 自适应高度 */
+            aspect-ratio: 4 / 3; /* 设置 4:3 比例 */
+            object-fit: cover; /* 保持比例填充 */
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            transition: transform 0.3s;
         }
-        table{
-          border-collapse: collapse;
-          margin: 0 auto;
-          text-align: center;
+        .handheld:hover img {
+            transform: scale(1.05);
         }
-        table td, table th{
-          border: 1px solid #cad9ea;
-          padding: 10px 20px;
-          color: #666;
-          height: 30px;
+        .handheld-description {
+            font-size: 20px;
+            padding: 15px;
+            color: #555;
         }
-        table thead th{
-          background-color: #CCE8EB;
-          width: 100px;
+        .extra-info {
+            display: none;
+            position: absolute;
+            font-size: 20px;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            transition: opacity 0.3s ease;
+            opacity: 0;
         }
-        table tr:nth-child(odd){
-          background: #fff;
+        .handheld:hover .extra-info {
+            display: block;
+            opacity: 1;
         }
-        table tr:nth-child(even){
-          background: #F5FAFA;
+        .handheld-description a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
         }
-        img{
-            margin: 10px;
-            height:80px;
-            width:auto;
+        .handheld-description a:hover {
+            text-decoration: underline;
+        }
+        /* 弹窗样式 */
+        .modal {
+            display: none; /* 默认隐藏 */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* 确保弹窗内文本颜色为黑色 */
+        #modalMessage {
+            color: black; /* 设置为黑色字体 */
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 标题部分 -->
-        <header>
-            <h1 class="title">寨中寨资源分享</h1>
-            <h3 style="text-align: center;">合作联系方式: wechat:lcdyk0517</h3>
-            <h3 style="text-align: center;">寨中寨群聊: qq:805044176</h3>
-        </header>
 
-
-
-        <!-- 稀范科技 -->
-        <section>
-            <h2 class="title">稀范科技</h2>
-            <div class="platform-images">
-                <img src="./img/xifan/R36Pro.png" alt="R36Pro">
-                <img src="./img/xifan/R36Max.png" alt="R36Max">
-                <img src="./img/xifan/Mymini.jpg" alt="Mymini">
-                <img src="./img/xifan/XF35H.png" alt="XF35H">
-                <img src="./img/xifan/XF40H.png" alt="XF40H">
-                <img src="./img/xifan/XF43.png" alt="XF43">
+<div class="container">
+    <h1>机型展示</h1>
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
+        <a href="javascript:void(0);" onclick="showModal('XF40H')">
+            <img src="./img/xifan/XF40H.png" alt="XF40H图片">
+            <div class="handheld-description">
+                <p>XF40H 更多资讯</p>
             </div>
-            <table>
-                <tr>
-                    <th>资源名称</th>
-                    <th>详细描述</th>
-                    <th>github下载地址</th>
-                    <th>百度网盘下载地址</th>
-                </tr>
-                <tr>
-                    <td>R36Pro</td>
-                    <td>系统镜像下载</td>
-                    <td><a href="https://github.com/AeolusUX/ArkOS-K36" target="_blank">Arkos</a></td>
-                    <td><a href="https://pan.baidu.com/s/1wDitSd5WckiMCt5GFDePLA?pwd=LC66" target="_blank">Emuelec卡刷包</a></td>
-                </tr>
-                <tr>
-                    <td>XiFanR36Max</td>
-                    <td>系统镜像下载</td>
-                    <td><a href="https://github.com/AeolusUX/ArkOS-K36" target="_blank">Arkos</a></td>
-                    <td>
-                        <a href="https://pan.baidu.com/s/18tU6v8W0fOiZlLx0Af7Afw?pwd=LC66" target="_blank">Emuelec卡刷包</a>
-                        <a href="https://pan.baidu.com/s/18tU6v8W0fOiZlLx0Af7Afw?pwd=LC66" target="_blank">Emuelec线刷包</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Mymini</td>
-                    <td>系统镜像下载</td>
-                    <td><a href="https://github.com/AeolusUX/ArkOS-K36" target="_blank">Arkos</a></td>
-                    <td>
-                        <a href="https://pan.baidu.com/s/1z-h2Ddff7glvHVffuXDqKw?pwd=LC66" target="_blank">Emuelec卡刷包</a>
-                        <a href="https://pan.baidu.com/s/1ne8eG05CPANjYnnA3t4X6Q?pwd=LC66" target="_blank">Emuelec线刷包</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>XF35H</td>
-                    <td>系统镜像下载</td>
-                    <td>
-                        <!-- <a href="https://github.com/AeolusUX/ArkOS-K36" target="_blank">Arkos</a> -->
-                    </td>
-                    <td>
-                        <a href="https://pan.baidu.com/s/13xLRTUbbANx1zO79n3sdSw?pwd=LC66" target="_blank">Emuelec卡刷包</a>
-                        <a href="https://pan.baidu.com/s/1_nImQxZuPLCESBvIXnQRLw?pwd=LC66" target="_blank">Emuelec线刷包</a>
-                        <a href="https://pan.baidu.com/s/1vTG7OupSd7ZWW9aqtqp9yA?pwd=LC66" target="_blank">Rocknix的dtbo文件</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>XF40H</td>
-                    <td>系统镜像下载</td>
-                    <td><a href="https://github.com/AeolusUX/ArkOS-K36" target="_blank">Arkos</a></td>
-                    <td>
-                        <a href="https://pan.baidu.com/s/1atPUrjTJyyCLEWJrWTYR7g?pwd=LC66" target="_blank">Emuelec卡刷包</a>
-                        <a href="https://pan.baidu.com/s/1XIf6w587qzNHigW-Htb8fA?pwd=LC66" target="_blank">Emuelec线刷包</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>XF43</td>
-                    <td>系统镜像下载</td>
-                    <td><a href="https://github.com/AeolusUX/ArkOS-K36" target="_blank">Arkos</a></td>
-                    <td>
-                        <a href="https://pan.baidu.com/s/12UpmJ52cDuBXW1XGZ4q1UA?pwd=LC66" target="_blank">Emuelec卡刷包</a>
-                        <a href="https://pan.baidu.com/s/1BeczJpHiAFnxEgYyjoyf1Q?pwd=LC66" target="_blank">Emuelec线刷包</a>
-                    </td>
-                </tr>
-            </table>
-        </section>
-
-
-    <!-- GameConsole -->
-        <section>
-            <h2 class="title">GameConsole</h2>
-            <div class="platform-images">
-                <img src="./img/gameconsole/R36S.png" alt="R36S">
-                <img src="./img/gameconsole/R36sPlus.png" alt="R36sPlus">
-                <img src="./img/gameconsole/R46S.png" alt="R46S">
-                <img src="./img/gameconsole/R36H.png" alt="R36H">
-            </div>
-            <table>
-                <tr>
-                    <th>资源名称</th>
-                    <th>详细描述</th>
-                    <th>github下载地址</th>
-                    <th>百度网盘下载地址</th>
-                </tr>
-                <tr>
-                    <td>R36S</td>
-                    <td>系统镜像下载</td>
-                    <td>
-                        <a href="https://github.com/AeolusUX/ArkOS-R3XS" target="_blank">Arkos</a>
-                        <a href="https://github.com/AmberELEC/AmberELEC-prerelease/" target="_blank">Amberelec</a>
-                        <a href="https://github.com/RetroGFX/UnofficialOS/releases" target="_blank">Uos</a>
-                        <a href="https://github.com/ROCKNIX/distribution/releases" target="_blank">Rocknix</a>
-                        <a href="https://mega.nz/folder/NXtHxQKB#YYbS9vf9R5lutuL9K1Z1OQ" target="_blank">Knulli</a>
-                    </td>
-                    <td>
-                        <a href="#" target="_blank">待更新</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>R36sPlus</td>
-                    <td>系统镜像下载</td>
-                    <td><a href="https://github.com/AeolusUX/ArkOS-R3XS" target="_blank">Arkos</a></td>
-                    <td>
-                        <a href="https://pan.baidu.com/s/1qPNsFDlFg86lL1UqLUG63A?pwd=LC66" target="_blank">Arkos</a>
-                        <a href="https://pan.baidu.com/s/1jny2uLOxLyP11VUq5VW1Rg?pwd=LC66" target="_blank">Uos</a>
-                        <a href="https://pan.baidu.com/s/1OUw3bTCCD2F2iH69yIcnWw?pwd=LC66" target="_blank">Rocknix的dtb</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>R46S</td>
-                    <td>系统镜像下载</td>
-                    <td><a href="https://github.com/christianhaitian/arkos" target="_blank">Arkos</a></td>
-                    <td>
-                        <a href="https://pan.baidu.com/s/1wSRdbqoI7Q8f7PyJE5BV8A?pwd=LC66" target="_blank">Arkos</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>R36H</td>
-                    <td>系统镜像下载</td>
-                    <td>
-                        <a href="https://github.com/christianhaitian/arkos" target="_blank">Arkos[P4]</a>
-                    </td>
-                    <td>
-                        <a href="https://pan.baidu.com/s/1_lYxVcAfzPyc4hc7R_lYHQ?pwd=LC66" target="_blank">Arkos</a>
-                    </td>
-                </tr>
-            </table>
-        </section>
-
-    <!-- G28 -->
-    <section>
-        <h2 class="title">G28家</h2>
-        <div class="platform-images">
-            <img src="./img/G28/G28.png" alt="G28">
-            <img src="./img/gameconsole/R36S.png" alt="R36SClone[G80C]">
-        </div>
-        <table>
-            <tr>
-                <th>资源名称</th>
-                <th>详细描述</th>
-                <th>github下载地址</th>
-                <th>百度网盘下载地址</th>
-            </tr>
-            <tr>
-                <td>G28</td>
-                <td>系统镜像下载</td>
-                <td>
-                    
-                </td>
-                <td>
-                    <a href="https://pan.baidu.com/s/1tcROAWxXYxtIT86fCdiqjQ?pwd=LC66" target="_blank">Emuelec卡刷包</a>
-                </td>
-            </tr>
-            <tr>
-                <td>R36SClone[G80C]</td>
-                <td>系统镜像下载</td>
-                <td>
-                    <a href="https://github.com/AeolusUX/ArkOS-R3XS" target="_blank">Arkos[P5]</a>
-                </td>
-                <td>
-                    <a href="https://pan.baidu.com/s/1ZuVUfab62BMUtXtTYkSvvQ?pwd=LC66" target="_blank">Emuelec卡刷包</a>
-                    <a href="https://pan.baidu.com/s/1cCnjte8cIRA9w89CIEcz7Q?pwd=LC66" target="_blank">Arkos</a> 
-                </td>
-            </tr>
-        </table>
-    </section>
-
-    <!-- K36s -->
-    <section>
-        <h2 class="title">K36s家</h2>
-        <div class="platform-images">
-            <img src="./img/K36s/K36s.png" alt="K36s">
-        </div>
-        <table>
-            <tr>
-                <th>资源名称</th>
-                <th>详细描述</th>
-                <th>github下载地址</th>
-                <th>百度网盘下载地址</th>
-            </tr>
-            <tr>
-                <td>K36s</td>
-                <td>系统镜像下载</td>
-                <td>
-                    <a href="https://github.com/AeolusUX/ArkOS-R3XS" target="_blank">Arkos[P4]</a>
-                </td>
-                <td>
-                    <a href="https://pan.baidu.com/s/1XUljWkOJodqKecr0zBvmzw?pwd=LC66" target="_blank">Emuelec卡刷包</a>
-                    <a href="https://pan.baidu.com/s/1GUzPXoiVWbskUPhHGHXo5g?pwd=LC66" target="_blank">Rocknix的dtb</a>
-                    <a href="https://pan.baidu.com/s/1nPBz4MvZ719q8Rdv49vAjg?pwd=LC66" target="_blank">arkos的dtb[需下载k36的arkos]</a>
-                </td>
-            </tr>
-        </table>
-    </section>
-    <br><br><br><br><br><br>
-
-
-    <!-- 打赏部分 -->
-    <section class="footer">
-        <h2 class="title">投喂打赏</h2>
-        <img src="./img/vx.png" alt="微信">
-        <img src="./img/ali.jpg" alt="支付宝">
-    </section>
+            <div class="extra-info">XF40H 更多资讯</div>
+        </a>
     </div>
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
+        <a href="javascript:void(0);" onclick="showModal('XF35H')">
+            <img src="./img/xifan/XF35H.png" alt="XF35H图片">
+            <div class="handheld-description">
+                <p>XF35H 更多资讯</p>
+            </div>
+            <div class="extra-info">XF35H 更多资讯</div>
+        </a>
+    </div>
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
+        <a href="./handheld/Mymini.html">
+            <img src="./img/xifan/Mymini.jpg" alt="Mymini图片">
+            <div class="handheld-description">
+                <p>Mymini 更多资讯</p>
+            </div>
+            <div class="extra-info">Mymini 更多资讯</div>
+        </a>
+    </div>
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
+        <a href="./handheld/XF43.html">
+            <img src="./img/xifan/XF43.png" alt="XF43图片">
+            <div class="handheld-description">
+                <p>XF43 更多资讯</p>
+            </div>
+            <div class="extra-info">XF43 更多资讯</div>
+        </a>
+    </div>
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
+        <a href="./handheld/R36Max.html">
+            <img src="./img/xifan/R36Max.png" alt="R36Max图片">
+            <div class="handheld-description">
+                <p>R36Max 更多资讯</p>
+            </div>
+            <div class="extra-info">R36Max 更多资讯</div>
+        </a>
+    </div>
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
+        <a href="./handheld/R36Pro.html">
+            <img src="./img/xifan/R36Pro.png" alt="R36Pro图片">
+            <div class="handheld-description">
+                <p>R36Pro 更多资讯</p>
+            </div>
+            <div class="extra-info">R36Pro 更多资讯</div>
+        </a>
+    </div>
+</div>
+
+<!-- 弹窗 -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p id="modalMessage">该机型暂未发布，敬请期待！</p> <!-- 确保这里有内容 -->
+    </div>
+</div>
+
+<script>
+    function showInfo(handheld) {
+        const info = handheld.querySelector('.extra-info');
+        info.style.display = 'block';
+    }
+
+    function hideInfo(handheld) {
+        const info = handheld.querySelector('.extra-info');
+        info.style.display = 'none';
+    }
+
+    function showModal(model) {
+        const modal = document.getElementById("myModal");
+        const message = document.getElementById("modalMessage");
+        message.textContent = model + " 暂未发布，敬请期待！"; // 设置弹窗内容
+        modal.style.display = "block"; // 显示弹窗
+    }
+
+    function closeModal() {
+        const modal = document.getElementById("myModal");
+        modal.style.display = "none"; // 关闭弹窗
+    }
+
+    // 点击窗口外关闭弹窗
+    window.onclick = function(event) {
+        const modal = document.getElementById("myModal");
+        if (event.target == modal) {
+            modal.style.display = "none"; // 关闭弹窗
+        }
+    }
+</script>
+
 </body>
 </html>
