@@ -130,6 +130,72 @@
                     { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-R36Max/releases/download/20250423/XFR36MAX-V1-B703_RF3536K4KA_YP2024080072_b02bdc_Dirty_20250423.img.gz" }
                 ]
             }
+        },
+        {
+            name: {
+                zh: "Rocknix",
+                en: "Rocknix"
+            },
+            log: {
+                zh: [
+                    "请下载ROCKNIX-RK3326.aarch64-xxxxxxxx-b.img.gz镜像"
+                ],
+                en: [
+                    "Please download ROCKNIX-RK3326.aarch64-xxxxxxxx-b.img.gz image"
+                ]
+            },
+            downloads: {
+                zh: [
+                    { platform: "rocknix每夜构建", link: "https://nightly.rocknix.org/" }
+                ],
+                en: [
+                    { platform: "rocknix nightly", link: "https://nightly.rocknix.org/" }
+                ]
+            }
+        },
+        {
+            name: {
+                zh: "Arkos非官方支持版",
+                en: "Arkos Aeux"
+            },
+            log: {
+                zh: [
+                    "请下载Download for R36 Max镜像"
+                ],
+                en: [
+                    "Please download 'Download for R36 Max' image"
+                ]
+            },
+            downloads: {
+                zh: [
+                    { platform: "Github", link: "https://github.com/AeolusUX/ArkOS-K36" }
+                ],
+                en: [
+                    { platform: "Github", link: "https://github.com/AeolusUX/ArkOS-K36" }
+                ]
+            }
+        },
+        {
+            name: {
+                zh: "Rocknix KK魔改版",
+                en: "Rocknix Mod"
+            },
+            log: {
+                zh: [
+                    "刷入后，把boot-r36max.ini重命名为boot.ini后再开机"
+                ],
+                en: [
+                    "After flashing, rename boot-r36max.ini to boot.ini before rebooting"
+                ]
+            },
+            downloads: {
+                zh: [
+                    { platform: "百度网盘", link: "https://pan.baidu.com/s/1-Ot3imEGWgNURBOPm0KZsg?pwd=rdpq#list/path=%2Frocknix%2F%E7%A8%80%E8%8C%83%E7%A7%91%E6%8A%80" }
+                ],
+                en: [
+                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1-Ot3imEGWgNURBOPm0KZsg?pwd=rdpq#list/path=%2Frocknix%2F%E7%A8%80%E8%8C%83%E7%A7%91%E6%8A%80" }
+                ]
+            }
         }
     ];
 
@@ -165,7 +231,7 @@
             section.appendChild(h2);
 
             const log = document.createElement('p');
-            log.innerHTML = (language === 'zh' ? "更新日志：" : "Change Log：") + "<br>" + system.log[language].join("<br>");
+            log.innerHTML = (language === 'zh' ? "日志：" : "Log：") + "<br>" + system.log[language].join("<br>");
             section.appendChild(log);
 
             const downloadContainer = document.createElement('div');
