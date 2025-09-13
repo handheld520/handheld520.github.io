@@ -153,15 +153,16 @@
         </select>
     </div>
     <h1 id="mainTitle">机型展示</h1>
-    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
-        <a id="linkXF40V"  href="./handheld/XF40V.html?lang=zh"  target="_blank">
-            <img src="./img/xifan/XF40V.png" alt="XF40V图片">
-            <div class="handheld-description">
-                <p id="xf40vTitle">XF40V 该机型暂未发布，敬请期待！</p>
-            </div>
-            <div class="extra-info" id="xf40vExtra">XF40V 该机型暂未发布，敬请期待！</div>
-        </a>
-    </div>        
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)" onclick="showModal('XF40V')">
+    <!-- 移除a标签，改用div包裹，点击整个卡片触发弹窗 -->
+    <div style="cursor: pointer;"> <!-- 加鼠标指针，提示可点击 -->
+        <img src="./img/xifan/XF40V.png" alt="XF40V图片">
+        <div class="handheld-description">
+            <p id="xf40vTitle">XF40V 该机型暂未发布，敬请期待！</p>
+        </div>
+        <div class="extra-info" id="xf40vExtra">XF40V 该机型暂未发布，敬请期待！</div>
+    </div>
+    </div>       
     </div>
     <h1 id="mainTitle">机型展示</h1>
     <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
@@ -292,3 +293,4 @@
 </body>
 
 </html>
+
