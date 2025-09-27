@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">XF40V 更多资讯</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* 浅色背景 */
+            color: #333; /* 深色文字 */
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9); /* 半透明白色背景 */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .language-selector {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav-table {
+            display: flex;
+            flex-wrap: wrap; /* 允许换行 */
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .nav-item {
+            flex: 1 1 30%; /* 每个链接占据 30% 的宽度 */
+            text-align: center;
+            margin: 5px; /* 间距 */
+        }
+        .nav-item a {
+            display: block;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .nav-item a:hover {
+            background-color: #0056b3; /* 悬停时的颜色 */
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        .download-link {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .download-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 id="mainTitle">XF40 更多资讯</h1>
+
+    <div class="language-selector">
+        <label for="language">Change Language:</label>
+        <select id="language" onchange="changeLanguage()">
+            <option value="zh">中文</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+
+    <div class="nav-table" id="systemTable"></div>
+
+    <div id="systemsContainer"></div>
+</div>
+
+<script>
+    const systems = [
+        {
+            name: {
+                zh: "EmuELEC Emmc镜像",
+                en: "EmuELEC EMMC Image"
+            },
+            log: {
+                zh: [
+
+                    "20250918: 初始版本"
+                ],
+                en: [
+                   
+                    "Version 20250918: Initial release."
+                ]
+            },
+            downloads: {
+                zh: [
+                    { platform: "百度网盘", link: "https://pan.baidu.com/s/1kkWxoI-x9hv-sStsnZmF-Q?pwd=ne69" },
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-XF40H/releases/download/20250704/XF40H-V1-B703_ba8947_Dirty_20250702_EMMC_update.img.gz" }
+                ],
+                en: [
+                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1kkWxoI-x9hv-sStsnZmF-Q?pwd=ne69" },
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-XF40H/releases/download/20250704/XF40H-V1-B703_ba8947_Dirty_20250702_EMMC_update.img.gz" }
+                ]
+            }
+        },
+        {
+            name: {
+                zh: "Emuelec 刷机软件及教程",
+                en: "Emuelec Flashing software and tutorial"
+            },
+            log: {
+                zh: [
+                    "版本20250723: 1.初始版本"
+                ],
+                en: [
+                    "Version 20250723: initial version."
+                ]
+            },
+            downloads: {
+                zh: [
+                    { platform: "百度网盘", link: "https://pan.baidu.com/s/1y9aFI-OY9BB3EZv9jYjQQg?pwd=XFXF" },
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/Mymini/releases/download/20250723/default.rar" }
+                ],
+                en: [
+                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1rP180STKsC-Qf6dhkdzNyQ?pwd=XFXF" },
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/Mymini/releases/download/20250723/Flashing.software.rar" }
+                ]
+            }
+        }
+    ];
+
+    // 获取URL中的语言参数
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    const defaultLanguage = (langParam === 'en') ? 'en' : 'zh';
+
+    // 生成导航菜单
+    const navTable = document.getElementById('systemTable');
+    function renderNav(language) {
+        navTable.innerHTML = ''; // 清空当前内容
+        systems.forEach(system => {
+            const navItem = document.createElement('div');
+            navItem.className = 'nav-item';
+            const link = document.createElement('a');
+            link.href = `#${system.name[language].toLowerCase()}`; // 使用当前语言的名称
+            link.textContent = system.name[language]; // 使用当前语言的名称
+            navItem.appendChild(link);
+            navTable.appendChild(navItem);
+        });
+    }
+
+    // 生成系统段落
+    function renderSystems(language) {
+        const container = document.getElementById('systemsContainer');
+        container.innerHTML = ''; // 清空当前内容
+        systems.forEach(system => {
+            const section = document.createElement('div');
+            section.id = system.name[language].toLowerCase(); // 使用当前语言的名称
+            const h2 = document.createElement('h2');
+            h2.textContent = system.name[language]; // 使用当前语言的名称
+            section.appendChild(h2);
+
+            const log = document.createElement('p');
+            log.innerHTML = (language === 'zh' ? "更新日志：" : "Change Log：") + "<br>" + system.log[language].join("<br>");
+            section.appendChild(log);
+
+            const downloadContainer = document.createElement('div');
+            downloadContainer.innerHTML = (language === 'zh' ? "<strong>下载链接：</strong><br>" : "<strong>Download Links：</strong><br>");
+            system.downloads[language].forEach(download => {
+                const downloadLink = document.createElement('a');
+                downloadLink.className = 'download-link';
+                downloadLink.href = download.link;
+                downloadLink.target = "_blank"; // 设置在新窗口中打开
+                downloadLink.textContent = `${download.platform} ` + (language === 'zh' ? "下载" : "download");
+                downloadContainer.appendChild(downloadLink);
+                downloadContainer.appendChild(document.createElement('br')); // 换行
+            });
+            section.appendChild(downloadContainer);
+
+            container.appendChild(section);
+        });
+    }
+
+    // 切换语言
+    function changeLanguage() {
+        const selectedLanguage = document.getElementById('language').value;
+        document.getElementById('mainTitle').textContent = selectedLanguage === 'zh' ? "Mymini 更多资讯" : "Mymini More Information"; // 更新标题
+        document.getElementById('pageTitle').textContent = selectedLanguage === 'zh' ? "Mymini 更多资讯" : "Mymini More Information"; // 更新页面标题
+        renderNav(selectedLanguage); // 更新导航菜单
+        renderSystems(selectedLanguage); // 更新系统内容
+    }
+
+    // 默认加载语言
+    renderNav(defaultLanguage); // 默认加载导航菜单
+    renderSystems(defaultLanguage); // 默认加载系统内容
+</script>
+
+</body>
+</html>
