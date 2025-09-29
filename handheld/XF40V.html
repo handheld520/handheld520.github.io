@@ -66,7 +66,7 @@
 <body>
 
 <div class="container">
-    <h1 id="mainTitle">XF40 更多资讯</h1>
+    <h1 id="mainTitle">XF40V 更多资讯</h1>
 
     <div class="language-selector">
         <label for="language">Change Language:</label>
@@ -132,7 +132,73 @@
                     { platform: "GitHub releases", link: "https://github.com/handheld520/Mymini/releases/download/20250723/Flashing.software.rar" }
                 ]
             }
-        }
+        },
+{
+            name: {
+                zh: "Emuelec 魔改版",
+                en: "Unofficially Modified Emuelec"
+            },
+            log: {
+                zh: [
+                    "版本20250928: 1.初始版本"
+                ],
+                en: [
+                    "Version 20250928: initial version."
+                ]
+            },
+            downloads: {
+                zh: [
+                    { platform: "百度网盘", link: "https://pan.baidu.com/s/1jqLYo2lXlcqCtJ6Wdk15ZA?pwd=XFXF" }
+                ],
+                en: [
+                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1nzVcvIprqh83J8BVuzDVcQ?pwd=XFXF" }
+                ]
+            }
+        },
+                {
+            name: {
+                zh: "TF 魔改版",
+                en: "Unofficially Modified TF"
+            },
+            log: {
+                zh: [
+                    "版本20250928: 1.初始版本"
+                ],
+                en: [
+                    "Version 20250928: initial version."
+                ]
+            },
+            downloads: {
+                zh: [
+                    { platform: "百度网盘", link: "https://pan.baidu.com/s/1WOP0McWdfaQ9OfFDEeFzUw?pwd=XFXF" }
+                ],
+                en: [
+                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1hQhQDtsEEMQd1FuLk6PyVw?pwd=XFXF" }
+                ]
+            }
+        },
+                {
+            name: {
+                zh: "ROCKNIX",
+                en: "ROCKNIX"
+            },
+            log: {
+                zh: [
+                    "版本20250928: 1.初始版本"
+                ],
+                en: [
+                    "Version 20250928: initial version."
+                ]
+            },
+            downloads: {
+                zh: [
+                    { platform: "百度网盘", link: "https://pan.baidu.com/s/1DR4wFl_BOlXaaKTQrnO65g?pwd=XFXF" }
+                ],
+                en: [
+                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1DR4wFl_BOlXaaKTQrnO65g?pwd=XFXF" }
+                ]
+            }
+        }      
     ];
 
     // 获取URL中的语言参数
@@ -190,8 +256,8 @@
     // 切换语言
     function changeLanguage() {
         const selectedLanguage = document.getElementById('language').value;
-        document.getElementById('mainTitle').textContent = selectedLanguage === 'zh' ? "Mymini 更多资讯" : "Mymini More Information"; // 更新标题
-        document.getElementById('pageTitle').textContent = selectedLanguage === 'zh' ? "Mymini 更多资讯" : "Mymini More Information"; // 更新页面标题
+        document.getElementById('mainTitle').textContent = selectedLanguage === 'zh' ? "XF40V 更多资讯" : "XF40V More Information"; // 更新标题
+        document.getElementById('pageTitle').textContent = selectedLanguage === 'zh' ? "XF40V 更多资讯" : "XF40V More Information"; // 更新页面标题
         renderNav(selectedLanguage); // 更新导航菜单
         renderSystems(selectedLanguage); // 更新系统内容
     }
