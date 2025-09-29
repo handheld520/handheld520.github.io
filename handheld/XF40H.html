@@ -1,12 +1,3 @@
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -94,17 +85,18 @@
     const systems = [
         {
             name: {
-                zh: "EmuELEC Emmc镜像",
-                en: "EmuELEC EMMC Image"
+                zh: "EmuELEC Emmc原厂镜像",
+                en: "EmuELEC Emmc Stock Image"
             },
             log: {
                 zh: [
-                     "20250908: 开机动画优化，进出游戏，arcade模拟器核心",
+                     "20250908: 1.优化游戏动画，更新进出游戏效果，提高开机和进出游戏效率；2.arcade模拟器核心更新，适配更多游戏。",
                     "20250628: 添加说明书",
                     "20250626: 初始版本"
                 ],
                 en: [
-                    "Version 20250908: Boot animation optimization, game entry and exit, arcade simulator core",
+                    "Version 20250911: 1.Optimize game animations, update in-game and out-of-game effects, and improve the efficiency of startup, entry into and exit from the game.",
+                    "2.Update the Arcade emulator core to support more games.",
                     "Version 20250628: Replace the latest manual picture.",
                     "Version 20250626: Initial release."
                 ]
@@ -143,7 +135,52 @@
                     { platform: "GitHub releases", link: "https://github.com/handheld520/Mymini/releases/download/20250723/Flashing.software.rar" }
                 ]
             }
-        }
+        },
+        {
+            name: {
+                zh: "Emuelec 魔改版",
+                en: "Unofficially Modified Emuelec"
+            },
+            log: {
+                zh: [
+                    "版本20250928: 1.初始版本"
+                ],
+                en: [
+                    "Version 20250928: initial version."
+                ]
+            },
+            downloads: {
+                zh: [
+                    { platform: "百度网盘", link: "https://pan.baidu.com/s/1EEkJY3-tyITFuy_EdmnBFA?pwd=XFXF" }
+                ],
+                en: [
+                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1rBeMyCRYLd9HLRh6r8RbeQ?pwd=XFXF" }
+                ]
+            }
+        },
+                {
+            name: {
+                zh: "TF 魔改版",
+                en: "Unofficially Modified TF"
+            },
+            log: {
+                zh: [
+                    "版本20250928: 1.初始版本"
+                ],
+                en: [
+                    "Version 20250928: initial version."
+                ]
+            },
+            downloads: {
+                zh: [
+                    { platform: "百度网盘", link: "https://pan.baidu.com/s/1kRJzrJZSebeDhV11HFPPmQ?pwd=XFXF" }
+                ],
+                en: [
+                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1q3LjXkmr_YFr40OvHA0qHw?pwd=XFXF" }
+                ]
+            }
+        }       
+        
     ];
 
     // 获取URL中的语言参数
@@ -201,8 +238,8 @@
     // 切换语言
     function changeLanguage() {
         const selectedLanguage = document.getElementById('language').value;
-        document.getElementById('mainTitle').textContent = selectedLanguage === 'zh' ? "Mymini 更多资讯" : "Mymini More Information"; // 更新标题
-        document.getElementById('pageTitle').textContent = selectedLanguage === 'zh' ? "Mymini 更多资讯" : "Mymini More Information"; // 更新页面标题
+        document.getElementById('mainTitle').textContent = selectedLanguage === 'zh' ? "XF40H 更多资讯" : "XF40H More Information"; // 更新标题
+        document.getElementById('pageTitle').textContent = selectedLanguage === 'zh' ? "XF40H 更多资讯" : "XF40H More Information"; // 更新页面标题
         renderNav(selectedLanguage); // 更新导航菜单
         renderSystems(selectedLanguage); // 更新系统内容
     }
