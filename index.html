@@ -151,8 +151,48 @@
             <option value="zh">中文</option>
             <option value="en">English</option>
         </select>
-    </div>
+    </div> 
     <h1 id="mainTitle">机型展示</h1>
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)" onclick="showModal('MINI40')">
+    <!-- 移除a标签，改用div包裹，点击整个卡片触发弹窗 -->
+    <div style="cursor: pointer;"> <!-- 加鼠标指针，提示可点击 -->
+        <img src="./img/xifan/MINI40.png" alt="MINI40图片">
+        <div class="handheld-description">
+            <p id="mini40Title">MINI40 该机型暂未发布，敬请期待！</p>
+        </div>
+        <div class="extra-info" id="mini40Extra">RF40H 该机型暂未发布，敬请期待！</div>
+    </div>
+    </div> 
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)" onclick="showModal('RF40H')">
+    <!-- 移除a标签，改用div包裹，点击整个卡片触发弹窗 -->
+    <div style="cursor: pointer;"> <!-- 加鼠标指针，提示可点击 -->
+        <img src="./img/xifan/RF40H.png" alt="RF40H图片">
+        <div class="handheld-description">
+            <p id="rf40hTitle">RF40H 该机型暂未发布，敬请期待！</p>
+        </div>
+        <div class="extra-info" id="rf40hExtra">RF40H 该机型暂未发布，敬请期待！</div>
+    </div>
+    </div>    
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)" onclick="showModal('F35V')">
+    <!-- 移除a标签，改用div包裹，点击整个卡片触发弹窗 -->
+    <div style="cursor: pointer;"> <!-- 加鼠标指针，提示可点击 -->
+        <img src="./img/xifan/F35V.png" alt="F35V图片">
+        <div class="handheld-description">
+            <p id="f35vTitle">F35V 该机型暂未发布，敬请期待！</p>
+        </div>
+        <div class="extra-info" id="f35vExtra">F35V 该机型暂未发布，敬请期待！</div>
+    </div>
+    </div> 
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)" onclick="showModal('RF35H')">
+    <!-- 移除a标签，改用div包裹，点击整个卡片触发弹窗 -->
+    <div style="cursor: pointer;"> <!-- 加鼠标指针，提示可点击 -->
+        <img src="./img/xifan/RF35H.png" alt="RF35H图片">
+        <div class="handheld-description">
+            <p id="rf35hTitle">RF35H 该机型暂未发布，敬请期待！</p>
+        </div>
+        <div class="extra-info" id="rf35hExtra">RF35H 该机型暂未发布，敬请期待！</div>
+    </div>
+    </div>       
     <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
         <a id="linkXF40V"  href="./handheld/XF40V.html?lang=zh"  target="_blank">
             <img src="./img/xifan/XF40V.png" alt="XF40V图片">
@@ -288,8 +328,12 @@
         document.getElementById('xf40hTitle').textContent = selectedLanguage === 'zh' ? "XF40H 更多资讯" : "XF40H More Information";        
         document.getElementById('xf40vTitle').textContent = selectedLanguage === 'zh' ? "XF40V 更多资讯" : "XF40V More Information";
         document.getElementById('dc40vTitle').textContent = selectedLanguage === 'zh' ? "DC40V 更多资讯" : "DC40V More Information";
-        document.getElementById('dc35vTitle').textContent = selectedLanguage === 'zh' ? "DC35V 更多资讯" : "DC35V More Information";     
-                   
+        document.getElementById('dc35vTitle').textContent = selectedLanguage === 'zh' ? "DC35V 更多资讯" : "DC35V More Information";  
+        document.getElementById('rf35hTitle').textContent = selectedLanguage === 'zh' ? "RF35H 更多资讯" : "RF35H More Information";         
+        document.getElementById('f35vTitle').textContent = selectedLanguage === 'zh' ? "F35V 更多资讯" : "F35V More Information"; 
+        document.getElementById('rf40hTitle').textContent = selectedLanguage === 'zh' ? "RF40H 更多资讯" : "RF40H More Information"; 
+        document.getElementById('mini40Title').textContent = selectedLanguage === 'zh' ? "RF40H 更多资讯" : "MINI40 More Information"; 
+                                
         document.getElementById('xf35hExtra').textContent = selectedLanguage === 'zh' ? "XF35H 更多资讯" : "XF35H More Information";
         document.getElementById('myminiExtra').textContent = selectedLanguage === 'zh' ? "Mymini 更多资讯" : "Mymini More Information";
         document.getElementById('xf43Extra').textContent = selectedLanguage === 'zh' ? "XF43 更多资讯" : "XF43 More Information";
@@ -299,7 +343,11 @@
         document.getElementById('xf40vExtra').textContent = selectedLanguage === 'zh' ? "XF40V 更多资讯" : "XF40V More Information";
         document.getElementById('dc40vExtra').textContent = selectedLanguage === 'zh' ? "DC40V 更多资讯" : "DC40V More Information";
         document.getElementById('dc35vExtra').textContent = selectedLanguage === 'zh' ? "DC35V 更多资讯" : "DC35V More Information";
-        
+        document.getElementById('rf35hExtra').textContent = selectedLanguage === 'zh' ? "RF35H 更多资讯" : "RF35H More Information";        
+        document.getElementById('f35vExtra').textContent = selectedLanguage === 'zh' ? "F35V 更多资讯" : "F35V More Information";  
+        document.getElementById('rf40hExtra').textContent = selectedLanguage === 'zh' ? "RF40H 更多资讯" : "RF40H More Information"; 
+        document.getElementById('mini40Extra').textContent = selectedLanguage === 'zh' ? "MINI40 更多资讯" : "MINI40 More Information"; 
+                          
         const langParam = selectedLanguage === 'zh' ? "lang=zh" : "lang=en";
         document.getElementById('linkXF35H').href = `./handheld/Mymini.html?${langParam}`;        
         document.getElementById('linkMymini').href = `./handheld/Mymini.html?${langParam}`;
@@ -310,6 +358,10 @@
         document.getElementById('linkXF40V').href = `./handheld/XF40V.html?${langParam}`;
         document.getElementById('linkDC40V').href = `./handheld/DC40V.html?${langParam}`;
         document.getElementById('linkDC35V').href = `./handheld/DC35V.html?${langParam}`;
+        document.getElementById('linkRF35H').href = `./handheld/RF35H.html?${langParam}`;  
+        document.getElementById('linkF35V').href = `./handheld/F35V.html?${langParam}`;        
+        document.getElementById('linkRF40H').href = `./handheld/RF40H.html?${langParam}`; 
+        document.getElementById('linkmini40').href = `./handheld/MINI40.html?${langParam}`;              
     }
 </script>
 
