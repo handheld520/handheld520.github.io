@@ -347,6 +347,11 @@
         document.getElementById('f35vExtra').textContent = selectedLanguage === 'zh' ? "F35V 更多资讯" : "F35V More Information";  
         document.getElementById('rf40hExtra').textContent = selectedLanguage === 'zh' ? "RF40H 更多资讯" : "RF40H More Information"; 
         document.getElementById('mini40Extra').textContent = selectedLanguage === 'zh' ? "MINI40 更多资讯" : "MINI40 More Information"; 
+        
+        // 新增：邮箱文本的多语言切换
+        document.getElementById('contactEmail').innerHTML = selectedLanguage === 'zh' 
+            ? '联系我们：<a href="mailto:SEEFUNPLAY@163.com">SEEFUNPLAY@163.com</a>' 
+            : 'Contact Us: <a href="mailto:SEEFUNPLAY@163.com">SEEFUNPLAY@163.com</a>';
                           
         const langParam = selectedLanguage === 'zh' ? "lang=zh" : "lang=en";
         document.getElementById('linkXF35H').href = `./handheld/Mymini.html?${langParam}`;        
