@@ -140,6 +140,22 @@
         #modalMessage {
             color: black; 
         }
+        /* 新增联系人邮箱样式 */
+        .contact-email {
+            clear: both;
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 22px;
+            color: #FFD700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        .contact-email a {
+            color: #FFD700;
+            text-decoration: underline;
+        }
+        .contact-email a:hover {
+            color: #fff;
+        }        
     </style>
 </head>
 <body>
@@ -276,6 +292,12 @@
     </div>
 </div>
 
+    <!-- 新增联系人邮箱区域 -->
+    <div class="contact-email" id="contactEmail">
+        联系我们：<a href="mailto:contact@xifantech.com">contact@xifantech.com</a>
+    </div>
+</div>
+
 <!-- 弹窗 -->
 <div id="myModal" class="modal">
     <div class="modal-content">
@@ -350,8 +372,8 @@
         
         // 新增：邮箱文本的多语言切换
         document.getElementById('contactEmail').innerHTML = selectedLanguage === 'zh' 
-            ? '联系我们：<a href="mailto:SEEFUNPLAY@163.com">SEEFUNPLAY@163.com</a>' 
-            : 'Contact Us: <a href="mailto:SEEFUNPLAY@163.com">SEEFUNPLAY@163.com</a>';
+            ? '联系我们：<a href="mailto:SEEFUNPLAY@163.COM">SEEFUNPLAY@163.COM</a>' 
+            : 'Contact Us: <a href="mailto:SEEFUNPLAY@163.COM">SEEFUNPLAY@163.COM</a>';
                           
         const langParam = selectedLanguage === 'zh' ? "lang=zh" : "lang=en";
         document.getElementById('linkXF35H').href = `./handheld/Mymini.html?${langParam}`;        
