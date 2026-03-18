@@ -168,27 +168,7 @@
             <option value="en">English</option>
         </select>
     </div> 
-    <h1 id="mainTitle">机型展示</h1>
-    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)" onclick="showModal('MINI40')">
-    <!-- 移除a标签，改用div包裹，点击整个卡片触发弹窗 -->
-    <div style="cursor: pointer;"> <!-- 加鼠标指针，提示可点击 -->
-        <img src="./img/xifan/MINI40.png" alt="MINI40图片">
-        <div class="handheld-description">
-            <p id="mini40Title">MINI40 该机型暂未发布，敬请期待！</p>
-        </div>
-        <div class="extra-info" id="mini40Extra">RF40H 该机型暂未发布，敬请期待！</div>
-    </div>
-    </div> 
-    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)" onclick="showModal('RF40H')">
-    <!-- 移除a标签，改用div包裹，点击整个卡片触发弹窗 -->
-    <div style="cursor: pointer;"> <!-- 加鼠标指针，提示可点击 -->
-        <img src="./img/xifan/RF40H.png" alt="RF40H图片">
-        <div class="handheld-description">
-            <p id="rf40hTitle">RF40H 该机型暂未发布，敬请期待！</p>
-        </div>
-        <div class="extra-info" id="rf40hExtra">RF40H 该机型暂未发布，敬请期待！</div>
-    </div>
-    </div>    
+    <h1 id="mainTitle">机型展示</h1>  
     <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)" onclick="showModal('F35V')">
     <!-- 移除a标签，改用div包裹，点击整个卡片触发弹窗 -->
     <div style="cursor: pointer;"> <!-- 加鼠标指针，提示可点击 -->
@@ -199,16 +179,69 @@
         <div class="extra-info" id="f35vExtra">F35V 该机型暂未发布，敬请期待！</div>
     </div>
     </div> 
-    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)" onclick="showModal('RF35H')">
-    <!-- 移除a标签，改用div包裹，点击整个卡片触发弹窗 -->
-    <div style="cursor: pointer;"> <!-- 加鼠标指针，提示可点击 -->
-        <img src="./img/xifan/RF35H.png" alt="RF35H图片">
-        <div class="handheld-description">
-            <p id="rf35hTitle">RF35H 该机型暂未发布，敬请期待！</p>
-        </div>
-        <div class="extra-info" id="rf35hExtra">RF35H 该机型暂未发布，敬请期待！</div>
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
+        <a id="linkMINI40"  href="./handheld/MINI40.html?lang=zh"  target="_blank">
+            <img src="./img/xifan/MINI40.png" alt="MINI40图片">
+            <div class="handheld-description">
+                <p id="mini40Title">MINI40 更多资讯</p>
+            </div>
+            <div class="extra-info" id="mini40Extra">MINI40 更多资讯</div>
+        </a>
     </div>
-    </div>       
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
+        <a id="linkRF35H"  href="./handheld/RF35H.html?lang=zh"  target="_blank">
+            <img src="./img/xifan/RF35H.png" alt="RF35H 40图片">
+            <div class="handheld-description">
+                <p id="rf35hTitle">RF35H 更多资讯</p>
+            </div>
+            <div class="extra-info" id="rf35hExtra">RF35H 更多资讯</div>
+        </a>
+    </div>  
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
+        <a id="linkRF40H"  href="./handheld/RF40H.html?lang=zh"  target="_blank">
+            <img src="./img/xifan/RF40H.png" alt="RF40H图片">
+            <div class="handheld-description">
+                <p id="rf40hTitle">RF40H 更多资讯</p>
+            </div>
+            <div class="extra-info" id="rf40hExtra">RF40H 更多资讯</div>
+        </a>
+    </div>     
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
+        <a id="linkXF45V"  href="./handheld/XF45V.html?lang=zh"  target="_blank">
+            <img src="./img/xifan/XF45V.png" alt="XF45V图片">
+            <div class="handheld-description">
+                <p id="xf45vTitle">XF45V 更多资讯</p>
+            </div>
+            <div class="extra-info" id="xf45vExtra">XF45V 更多资讯</div>
+        </a>
+    </div>
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
+        <a id="linkDC45V"  href="./handheld/DC45V.html?lang=zh"  target="_blank">
+            <img src="./img/xifan/DC45V.png" alt="DC45V图片">
+            <div class="handheld-description">
+                <p id="dc45vTitle">DC45V 更多资讯</p>
+            </div>
+            <div class="extra-info" id="dc40vExtra">DC45V 更多资讯</div>
+        </a>
+    </div>   
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
+        <a id="linkR36MAX2"  href="./handheld/R36MAX2.html?lang=zh"  target="_blank">
+            <img src="./img/xifan/R36MAX2.png" alt="R36MAX2图片">
+            <div class="handheld-description">
+                <p id="r36max2Title">R36MAX2 更多资讯</p>
+            </div>
+            <div class="extra-info" id="r36max2Extra">R36MAX2 更多资讯</div>
+        </a>
+    </div> 
+    <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
+        <a id="linkRF45V"  href="./handheld/RF45V.html?lang=zh"  target="_blank">
+            <img src="./img/xifan/RF45V.png" alt="RF45V图片">
+            <div class="handheld-description">
+                <p id="rf45vTitle">RF45V 更多资讯</p>
+            </div>
+            <div class="extra-info" id="rf40vExtra">RF45V 更多资讯</div>
+        </a>
+    </div>                    
     <div class="handheld" onmouseover="showInfo(this)" onmouseout="hideInfo(this)">
         <a id="linkXF40V"  href="./handheld/XF40V.html?lang=zh"  target="_blank">
             <img src="./img/xifan/XF40V.png" alt="XF40V图片">
@@ -294,7 +327,7 @@
 
     <!-- 新增联系人邮箱区域 -->
     <div class="contact-email" id="contactEmail">
-        联系我们：<a href="SEEFUNPLAY@163.COM">SEEFUNPLAY@163.COM</a>
+        联系我们：<a href="mailto:SEEFUNPLAY@163.COM">SEEFUNPLAY@163.COM</a>
     </div>
 </div>
 
@@ -355,7 +388,11 @@
         document.getElementById('f35vTitle').textContent = selectedLanguage === 'zh' ? "F35V 更多资讯" : "F35V More Information"; 
         document.getElementById('rf40hTitle').textContent = selectedLanguage === 'zh' ? "RF40H 更多资讯" : "RF40H More Information"; 
         document.getElementById('mini40Title').textContent = selectedLanguage === 'zh' ? "RF40H 更多资讯" : "MINI40 More Information"; 
-                                
+        document.getElementById('xf45vTitle').textContent = selectedLanguage === 'zh' ? "XF45V 更多资讯" : "XF45V More Information";         
+        document.getElementById('rf45vTitle').textContent = selectedLanguage === 'zh' ? "RF45V 更多资讯" : "RF45V More Information";   
+        document.getElementById('dc45vTitle').textContent = selectedLanguage === 'zh' ? "DC45V 更多资讯" : "DC45V More Information";  
+        document.getElementById('r36max2Title').textContent = selectedLanguage === 'zh' ? "R36MAX2 更多资讯" : "R36MAX2 More Information";          
+                                        
         document.getElementById('xf35hExtra').textContent = selectedLanguage === 'zh' ? "XF35H 更多资讯" : "XF35H More Information";
         document.getElementById('myminiExtra').textContent = selectedLanguage === 'zh' ? "Mymini 更多资讯" : "Mymini More Information";
         document.getElementById('xf43Extra').textContent = selectedLanguage === 'zh' ? "XF43 更多资讯" : "XF43 More Information";
@@ -369,7 +406,11 @@
         document.getElementById('f35vExtra').textContent = selectedLanguage === 'zh' ? "F35V 更多资讯" : "F35V More Information";  
         document.getElementById('rf40hExtra').textContent = selectedLanguage === 'zh' ? "RF40H 更多资讯" : "RF40H More Information"; 
         document.getElementById('mini40Extra').textContent = selectedLanguage === 'zh' ? "MINI40 更多资讯" : "MINI40 More Information"; 
-        
+        document.getElementById('xf45vExtra').textContent = selectedLanguage === 'zh' ? "XF45V 更多资讯" : "XF45V More Information"; 
+        document.getElementById('rf45vExtra').textContent = selectedLanguage === 'zh' ? "RF45V 更多资讯" : "RF45V More Information";         
+        document.getElementById('dc45vExtra').textContent = selectedLanguage === 'zh' ? "DC45V 更多资讯" : "DC45V More Information";  
+        document.getElementById('r36max2Extra').textContent = selectedLanguage === 'zh' ? "R36MAX2 更多资讯" : "R36MAX2 More Information";          
+                        
         // 新增：邮箱文本的多语言切换
         document.getElementById('contactEmail').innerHTML = selectedLanguage === 'zh' 
             ? '联系我们：<a href="mailto:SEEFUNPLAY@163.COM">SEEFUNPLAY@163.COM</a>' 
@@ -388,10 +429,13 @@
         document.getElementById('linkRF35H').href = `./handheld/RF35H.html?${langParam}`;  
         document.getElementById('linkF35V').href = `./handheld/F35V.html?${langParam}`;        
         document.getElementById('linkRF40H').href = `./handheld/RF40H.html?${langParam}`; 
-        document.getElementById('linkmini40').href = `./handheld/MINI40.html?${langParam}`;              
+        document.getElementById('linkmini40').href = `./handheld/MINI40.html?${langParam}`;  
+        document.getElementById('linkxf45v').href = `./handheld/XF45V.html?${langParam}`;  
+        document.getElementById('linkrf45v').href = `./handheld/RF45V.html?${langParam}`;   
+        document.getElementById('linkdc45v').href = `./handheld/DC45V.html?${langParam}`;   
+        document.getElementById('linkr36max2').href = `./handheld/R36MAX2.html?${langParam}`;                                  
     }
 </script>
 
 </body>
-
 </html>
