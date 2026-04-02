@@ -162,10 +162,10 @@
             },
             log: {
                 zh: [
-                    "版本20260316: 1.初始版本"
+                    "版本20251030: 1.初始版本"
                 ],
                 en: [
-                    "Version 20260316: initial version."
+                    "Version 20251030: initial version."
                 ]
             },
             downloads: {
@@ -198,7 +198,31 @@
                     { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1DR4wFl_BOlXaaKTQrnO65g?pwd=XFXF" }
                 ]
             }
-        }      
+        },
+               {
+            name: {
+                zh: "ARKOS非原厂",
+                en: "ARKOS(non-official/original)"
+            },
+            log: {
+                zh: [
+                    "版本20260313: 1.初始版本"
+                ],
+                en: [
+                    "Version 20260313: initial version."
+                ]
+            },
+            downloads: {
+                zh: [
+                    { platform: "百度网盘", link: "https://pan.baidu.com/s/1mfIaflb8FfJO_gBZD9uUwg?pwd=lc66" },
+                    { platform: "GitHub releases", link: "https://github.com/lcdyk0517/arkos4clone" }
+                ],
+                en: [
+                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1mfIaflb8FfJO_gBZD9uUwg?pwd=lc66" },
+                    { platform: "GitHub releases", link: "https://github.com/lcdyk0517/arkos4clone" }
+                ]
+            }
+        }                   
     ];
 
     // 获取URL中的语言参数
@@ -256,8 +280,8 @@
     // 切换语言
     function changeLanguage() {
         const selectedLanguage = document.getElementById('language').value;
-        document.getElementById('mainTitle').textContent = selectedLanguage === 'zh' ? "XF40V 更多资讯" : "XF40V More Information"; // 更新标题
-        document.getElementById('pageTitle').textContent = selectedLanguage === 'zh' ? "XF40V 更多资讯" : "XF40V More Information"; // 更新页面标题
+        document.getElementById('mainTitle').textContent = selectedLanguage === 'zh' ? "XF45V 更多资讯" : "XF45V More Information"; // 更新标题
+        document.getElementById('pageTitle').textContent = selectedLanguage === 'zh' ? "XF45V 更多资讯" : "XF45V More Information"; // 更新页面标题
         renderNav(selectedLanguage); // 更新导航菜单
         renderSystems(selectedLanguage); // 更新系统内容
     }

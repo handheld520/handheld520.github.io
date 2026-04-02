@@ -90,20 +90,20 @@
             },
             log: {
                 zh: [
-                    "版本20250702: 优化切换语言时间过长的问题"
+                    "版本20260102: 初始版本"
                 ],
                 en: [
-                    "Version 20250702: Address the issue of excessively long language switching time."
+                    "Version 20260102: Initial version."
                 ]
             },
             downloads: {
                 zh: [
-                    { platform: "百度网盘", link: "https://pan.baidu.com/s/1QOk_2pFrA2zVQlVfaEVNZQ?pwd=XFXF" },
-                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-MINI40/releases/download/20260201/S0945_RF35MG_YP2025120024_Mymini40_61beee_Dirty_20251231_EMMC_update.img.gz" }
+                    { platform: "百度网盘", link: "https://pan.baidu.com/s/1G5dRCAkc5h70J6_LHqwaIw?pwd=XFXF" },
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-MINI40/releases/download/20260201/S0945_RF35MG_YP2025120024_MINI4040_61beee_Dirty_20251231_EMMC_update.img.gz" }
                 ],
                 en: [
-                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1QOk_2pFrA2zVQlVfaEVNZQ?pwd=XFXF" },
-                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-MINI40/releases/download/20260201/S0945_RF35MG_YP2025120024_Mymini40_61beee_Dirty_20251231_EMMC_update.img.gz" }
+                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1G5dRCAkc5h70J6_LHqwaIw?pwd=XFXF" },
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-MINI40/releases/download/20260201/S0945_RF35MG_YP2025120024_MINI4040_61beee_Dirty_20251231_EMMC_update.img.gz" }
                 ]
             }
         },
@@ -123,36 +123,15 @@
             downloads: {
                 zh: [
                     { platform: "百度网盘", link: "https://pan.baidu.com/s/1y9aFI-OY9BB3EZv9jYjQQg?pwd=XFXF" },
-                    { platform: "GitHub releases", link: "https://github.com/handheld520/Mymini/releases/download/20250723/default.rar" }
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/MINI40/releases/download/20250723/default.rar" }
                 ],
                 en: [
                     { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1rP180STKsC-Qf6dhkdzNyQ?pwd=XFXF" },
-                    { platform: "GitHub releases", link: "https://github.com/handheld520/Mymini/releases/download/20250723/Flashing.software.rar" }
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/MINI40/releases/download/20250723/Flashing.software.rar" }
                 ]
             }
         },
-        {
-            name: {
-                zh: "Arkos非官方支持版",
-                en: "Arkos Aeux"
-            },
-            log: {
-                zh: [
-                    "请下载Download for Mymini镜像"
-                ],
-                en: [
-                    "Please download 'Download for Mymini' image"
-                ]
-            },
-            downloads: {
-                zh: [
-                    { platform: "Github", link: "https://github.com/AeolusUX/ArkOS-K36" }
-                ],
-                en: [
-                    { platform: "Github", link: "https://github.com/AeolusUX/ArkOS-K36" }
-                ]
-            }
-        },
+
         {
             name: {
                 zh: "Rocknix KK魔改版",
@@ -160,10 +139,10 @@
             },
             log: {
                 zh: [
-                    "刷入后，把boot-Mymini.ini重命名为boot.ini后再开机"
+                    "刷入后,把boot-MINI40.ini重命名为boot.ini后再开机"
                 ],
                 en: [
-                    "After flashing, rename boot-Mymini.ini to boot.ini before rebooting"
+                    "After flashing, rename boot-MINI40.ini to boot.ini before rebooting"
                 ]
             },
             downloads: {
@@ -174,7 +153,31 @@
                     { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1-Ot3imEGWgNURBOPm0KZsg?pwd=rdpq#list/path=%2Frocknix%2F%E7%A8%80%E8%8C%83%E7%A7%91%E6%8A%80" }
                 ]
             }
-        }
+        },
+               {
+            name: {
+                zh: "ARKOS非原厂",
+                en: "ARKOS(non-official/original)"
+            },
+            log: {
+                zh: [
+                    "版本20260313: 1.初始版本"
+                ],
+                en: [
+                    "Version 20260313: initial version."
+                ]
+            },
+            downloads: {
+                zh: [
+                    { platform: "百度网盘", link: "https://pan.baidu.com/s/1mfIaflb8FfJO_gBZD9uUwg?pwd=lc66" },
+                    { platform: "GitHub releases", link: "https://github.com/lcdyk0517/arkos4clone" }
+                ],
+                en: [
+                    { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1mfIaflb8FfJO_gBZD9uUwg?pwd=lc66" },
+                    { platform: "GitHub releases", link: "https://github.com/lcdyk0517/arkos4clone" }
+                ]
+            }
+        }               
     ];
 
     // 获取URL中的语言参数
@@ -232,8 +235,8 @@
     // 切换语言
     function changeLanguage() {
         const selectedLanguage = document.getElementById('language').value;
-        document.getElementById('mainTitle').textContent = selectedLanguage === 'zh' ? "Mymini 更多资讯" : "Mymini More Information"; // 更新标题
-        document.getElementById('pageTitle').textContent = selectedLanguage === 'zh' ? "Mymini 更多资讯" : "Mymini More Information"; // 更新页面标题
+        document.getElementById('mainTitle').textContent = selectedLanguage === 'zh' ? "MINI40 更多资讯" : "MINI40 More Information"; // 更新标题
+        document.getElementById('pageTitle').textContent = selectedLanguage === 'zh' ? "MINI40 更多资讯" : "MINI40 More Information"; // 更新页面标题
         renderNav(selectedLanguage); // 更新导航菜单
         renderSystems(selectedLanguage); // 更新系统内容
     }

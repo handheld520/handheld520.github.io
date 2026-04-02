@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">DC35V 更多资讯</title>
+    <title id="pageTitle">F35V 更多资讯</title>
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <style>
         body {
@@ -66,7 +66,7 @@
 <body>
 
 <div class="container">
-    <h1 id="mainTitle">DC35V 更多资讯</h1>
+    <h1 id="mainTitle">F35V 更多资讯</h1>
 
     <div class="language-selector">
         <label for="language">Change Language:</label>
@@ -101,11 +101,11 @@
             downloads: {
                 zh: [
                     { platform: "百度网盘", link: "https://pan.baidu.com/s/1wJIpGLDFu9QbUaz4InrVyA?pwd=XFXF" },
-                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-DC35V/releases/download/20251030/dc35v-EMMC-es-r-20251028.img" }
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-F35V/releases/download/20251030/F35V-EMMC-es-r-20251028.img" }
                 ],
                 en: [
                     { platform: "Baidu Netdisk", link: "https://pan.baidu.com/s/1wJIpGLDFu9QbUaz4InrVyA?pwd=XFXF" },
-                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-DC35V/releases/download/20251030/dc35v-EMMC-es-r-20251028.img" }
+                    { platform: "GitHub releases", link: "https://github.com/handheld520/XiFan-F35V/releases/download/20251030/F35V-EMMC-es-r-20251028.img" }
                 ]
             }
         },
@@ -256,8 +256,8 @@
     // 切换语言
     function changeLanguage() {
         const selectedLanguage = document.getElementById('language').value;
-        document.getElementById('mainTitle').textContent = selectedLanguage === 'zh' ? "DC35V 更多资讯" : "DC35V More Information"; // 更新标题
-        document.getElementById('pageTitle').textContent = selectedLanguage === 'zh' ? "DC35V 更多资讯" : "DC35V More Information"; // 更新页面标题
+        document.getElementById('mainTitle').textContent = selectedLanguage === 'zh' ? "F35V 更多资讯" : "F35V More Information"; // 更新标题
+        document.getElementById('pageTitle').textContent = selectedLanguage === 'zh' ? "F35V 更多资讯" : "F35V More Information"; // 更新页面标题
         renderNav(selectedLanguage); // 更新导航菜单
         renderSystems(selectedLanguage); // 更新系统内容
     }
